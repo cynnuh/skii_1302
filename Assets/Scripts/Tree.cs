@@ -3,17 +3,16 @@ using UnityEngine;
 public class Tree : MonoBehaviour
 {
     private MeshRenderer rd;
+    private Color originalColor;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rd = GetComponent<MeshRenderer>();
+        originalColor = rd.material.color;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -31,6 +30,7 @@ public class Tree : MonoBehaviour
         if (player.HP <= 0)
         {
             player.HP = 0;
+         
             UIManager.instance.ShowNotiText($"You are dead!\nPoints: {player.Point}");
             Time.timeScale = 0f;
             UIManager.instance.ShowHideRestartButton(true);
@@ -39,6 +39,6 @@ public class Tree : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        rd.material.color = new Color32(217, 138, 75, 255);
+        rd.material.color = originalColor;
     }
 }
