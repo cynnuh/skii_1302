@@ -1,12 +1,17 @@
 using UnityEngine;
 using TMPro;
 
-
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
     private TMP_Text notiText;
-    
+
+    [SerializeField]
+    private GameObject restartButton;
+
+    [SerializeField]
+    private Player player;
+
     public static UIManager instance;
 
     void Awake()
@@ -14,24 +19,41 @@ public class UIManager : MonoBehaviour
         instance = this;
     }
 
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void ShowNotiText(string s)
     {
         notiText.text = s;
+        notiText.color = Color.white;
+    }
+
+    public void ShowNotiText(string s, Color color)
+    {
+        notiText.text = s;
+        notiText.color = color;
+    }
+
+    public void RestartGame()
+    {
+        player.transform.position = new Vector3(0f, 88f, -86f);
+        player.HP = 100;
+        ShowNotiText("Restart");
+        Time.timeScale = 1f;
+        ShowHideRestartButton(false);
+    }
+
+    public void ShowHideRestartButton(bool flag)
+    {
+        restartButton.SetActive(flag);
     }
 }
-
-
