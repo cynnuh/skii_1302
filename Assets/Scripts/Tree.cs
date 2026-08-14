@@ -3,21 +3,29 @@ using UnityEngine;
 public class Tree : MonoBehaviour
 {
     private MeshRenderer rd;
-    private Color originalColor;
+    private Color[] originalColors;
 
     void Start()
     {
-        rd = GetComponent<MeshRenderer>();
-        originalColor = rd.material.color;
+        rd = GetComponentInChildren<MeshRenderer>();
+        originalColors = new Color[rd.materials.Length];
+        for (int i = 0; i < rd.materials.Length; i++)
+        {
+            originalColors[i] = rd.materials[i].color;
+        }
     }
 
     void Update()
     {
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        rd.material.color = Color.red;
+        foreach (Material m in rd.materials)
+        {
+            m.color = Color.red;
+        }
 
         Player player = collision.gameObject.GetComponent<Player>();
 
@@ -30,7 +38,6 @@ public class Tree : MonoBehaviour
         if (player.HP <= 0)
         {
             player.HP = 0;
-         
             UIManager.instance.ShowNotiText($"You are dead!\nPoints: {player.Point}");
             Time.timeScale = 0f;
             UIManager.instance.ShowHideRestartButton(true);
@@ -39,6 +46,9 @@ public class Tree : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        rd.material.color = originalColor;
+        for (int i = 0; i < rd.materials.Length; i++)
+        {
+            rd.materials[i].color = originalColors[i];
+        }
     }
 }

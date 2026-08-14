@@ -51,7 +51,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728397532618015493}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728397532618015493}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28788c08ebb32fb469e8e1652649dcae, type: 3}
   m_Name: 
@@ -142,15 +142,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012197449570, guid: 486199bf79aa990499bfa71c578eaad4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.35
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000012197449570, guid: 486199bf79aa990499bfa71c578eaad4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4000012197449570, guid: 486199bf79aa990499bfa71c578eaad4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.35
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000012197449570, guid: 486199bf79aa990499bfa71c578eaad4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -194,13 +194,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 23000010215965848, guid: 486199bf79aa990499bfa71c578eaad4, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 64000011916849430, guid: 486199bf79aa990499bfa71c578eaad4, type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1000011147454354, guid: 486199bf79aa990499bfa71c578eaad4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2097665427796754834}
   m_SourcePrefab: {fileID: 100100000, guid: 486199bf79aa990499bfa71c578eaad4, type: 3}
+--- !u!1 &4764875435771710362 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000011147454354, guid: 486199bf79aa990499bfa71c578eaad4, type: 3}
+  m_PrefabInstance: {fileID: 4765847957916314632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2097665427796754834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4764875435771710362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28788c08ebb32fb469e8e1652649dcae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tree
 --- !u!4 &4768613312776577898 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000012197449570, guid: 486199bf79aa990499bfa71c578eaad4, type: 3}

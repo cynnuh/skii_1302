@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     private float forcePower;
-    
+
     [SerializeField]
     private Rigidbody rb;
 
@@ -28,19 +28,28 @@ public class Player : MonoBehaviour
         set { hp = value; }
     }
 
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         MoveLeftOrRight();
+
+        if (transform.position.y < -100f && HP > 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        HP = 0;
+        UIManager.instance.ShowNotiText($"You are dead!\nPoints: {Point}");
+        Time.timeScale = 0f;
+        UIManager.instance.ShowHideRestartButton(true);
     }
 
     private void MoveLeftOrRight()
